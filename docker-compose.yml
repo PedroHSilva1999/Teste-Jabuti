@@ -3,8 +3,6 @@ services:
     build:
       context: .
     container_name: users-api
-    env_file:
-      - .env
     ports:
       - "8000:8000"
     depends_on:
