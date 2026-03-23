@@ -4,9 +4,9 @@ from pydantic import BaseModel, ConfigDict, EmailStr, Field
 
 
 class UserBase(BaseModel):
-    nome: str = Field(min_length=1, max_length=255)
+    name: str = Field(min_length=1, max_length=255)
     email: EmailStr
-    idade: int = Field(ge=0, le=150)
+    age: int = Field(ge=0, le=150)
 
 
 class UserCreate(UserBase):
