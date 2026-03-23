@@ -72,9 +72,15 @@ Para registrar a base de dados:
 - Docker
 - Docker Compose
 
-## Como executar (Docker Compose)
+## Como baixar e rodar localmente
 
-1. (Opcional) ajuste o arquivo `.env`.
+1. Baixe o projeto:
+
+```bash
+git clone <URL_DO_SEU_REPOSITORIO>
+cd Teste-Jabuti
+```
+
 2. Suba a stack:
 
 ```bash
@@ -91,23 +97,21 @@ docker compose down
 
 ## Variáveis de ambiente
 
-O serviço da aplicação usa `env_file: .env`.
+A API funciona com **defaults internos**, então **não é obrigatório** criar um `.env` para rodar.
 
-Se o `.env` estiver vazio, a aplicação usa defaults internos compatíveis com os nomes dos containers no `docker-compose.yml`:
-
-- `DATABASE_URL` (por padrão aponta para `users-db`)
-- `REDIS_URL` (por padrão aponta para `users-cache`)
-- `REDIS_CACHE_TTL` (por padrão 300 segundos)
+O `.env` é **opcional** para customizar valores usados no `docker-compose.yml` (por exemplo, credenciais do Postgres e do pgAdmin via `${...}`).
 
 Exemplo de `.env`:
 
 ```env
-DATABASE_URL=postgresql+psycopg://postgres:postgres@users-db:5432/users_db
-REDIS_URL=redis://users-cache:6379/0
-REDIS_CACHE_TTL=300
+POSTGRES_DB=users_db
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+PGADMIN_DEFAULT_EMAIL=admin@admin.com
+PGADMIN_DEFAULT_PASSWORD=admin
 ```
 
-> Observação: `POSTGRES_DB`, `POSTGRES_USER` e `POSTGRES_PASSWORD` são configurados no próprio `docker-compose.yml` com defaults caso não existam no `.env`.
+> Observação: se você não criar `.env`, o `docker-compose.yml` já usa defaults.
 
 ## Endpoints (API)
 
