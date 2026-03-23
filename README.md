@@ -74,7 +74,7 @@ Para registrar a base de dados:
 
 ## Como executar (Docker Compose)
 
-1. (Opcional) ajuste o ficheiro `.env`.
+1. (Opcional) ajuste o arquivo `.env`.
 2. Suba a stack:
 
 ```bash
@@ -95,9 +95,9 @@ O serviço da aplicação usa `env_file: .env`.
 
 Se o `.env` estiver vazio, a aplicação usa defaults internos compatíveis com os nomes dos containers no `docker-compose.yml`:
 
-- `DATABASE_URL` (por defeito aponta para `users-db`)
-- `REDIS_URL` (por defeito aponta para `users-cache`)
-- `REDIS_CACHE_TTL` (por defeito 300 segundos)
+- `DATABASE_URL` (por padrão aponta para `users-db`)
+- `REDIS_URL` (por padrão aponta para `users-cache`)
+- `REDIS_CACHE_TTL` (por padrão 300 segundos)
 
 Exemplo de `.env`:
 
